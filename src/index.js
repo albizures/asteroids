@@ -35,7 +35,7 @@ function setup() {
   );
 
   ship.scale.set(2, 2);
-  ship.position.set(900, 500)
+  ship.position.set(window.innerWidth / 2, window.innerHeight / 2)
   ship.vx = 0;
   ship.vy = 0;
 
@@ -98,7 +98,23 @@ function update(delta) {
 
   ship.x = ship.x - ((ship.vy * sa) * delta);
   ship.y = ship.y + ((ship.vy * ca) * delta);
+  
+  if( ship.x < 0 ){
+    ship.x = window.innerWidth
+  }
 
+  if( ship.x > window.innerWidth){
+    ship.x = 0
+  }
+  
+  if (ship.y < 0) {
+    ship.y = window.innerHeight
+  }
+
+  if (ship.y > window.innerHeight) {
+    ship.y = 0
+  }
+  
 }
 
 
